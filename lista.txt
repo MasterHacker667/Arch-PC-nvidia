@@ -1,0 +1,26 @@
+#Setup inicial
+git clone -b pkgs-lists https://github.com/MasterHacker667/Arch-PC-nvidia.git ~/temp_lists
+sudo pacman -S --needed - < ~/temp_lists/pkglist.txt
+sudo systemctl enable --now GDM NetworkManager
+yay -S --needed - < ~/temp_lists/aur_pkglist.txt
+
+#Configuracion de nvim a lazyvim
+rm -rf ~/.config/nvim
+
+git clone -b nvim-lazy https://github.com/MasterHacker667/Arch-PC-nvidia.git ~/.config/nvim
+
+#Personalizacion de kitty
+mkdir -p ~/.config/kitty
+
+git archive --remote=https://github.com/MasterHacker667/Arch-PC-nvidia.git terminal-kitty config/kitty/kitty.conf | tar -xO > ~/.config/kitty/kitty.conf
+
+#Personalizacion de consola
+curl -o ~/.bashrc https://raw.githubusercontent.com/MasterHacker667/Arch-PC-nvidia/shell-decor/bashrc
+source ~/.bashrc
+
+#Sistema del Pony 
+git clone -b system-services https://github.com/MasterHacker667/Arch-PC-nvidia.git ~/temp_sys
+
+sudo cp -r ~/temp_sys/tu-tema-pony /usr/share/plymouth/themes/
+sudo plymouth-set-default-theme -R tu-tema-pony
+
