@@ -107,7 +107,6 @@ wget
 wl-clipboard
 xdg-desktop-portal-gnome
 xdg-user-dirs-gtk
-xf86-video-vesa
 xorg-bdftopcf
 xorg-docs
 xorg-font-util
